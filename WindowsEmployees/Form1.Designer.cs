@@ -30,7 +30,6 @@
         {
             this.listBoxEmployee = new System.Windows.Forms.ListBox();
             this.butInsert = new System.Windows.Forms.Button();
-            this.butSelect = new System.Windows.Forms.Button();
             this.numericUpDownSalary = new System.Windows.Forms.NumericUpDown();
             this.dateTimeHire_date = new System.Windows.Forms.DateTimePicker();
             this.textBoxPhone_number = new System.Windows.Forms.TextBox();
@@ -49,7 +48,6 @@
             this.comboBoxManager = new System.Windows.Forms.ComboBox();
             this.comboBoxDepartment = new System.Windows.Forms.ComboBox();
             this.comboBoxJob = new System.Windows.Forms.ComboBox();
-            this.comboBoxTablas = new System.Windows.Forms.ComboBox();
             this.butDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSalary)).BeginInit();
             this.SuspendLayout();
@@ -73,15 +71,6 @@
             this.butInsert.Text = "Insert";
             this.butInsert.UseVisualStyleBackColor = true;
             this.butInsert.Click += new System.EventHandler(this.butInsert_Click);
-            // 
-            // butSelect
-            // 
-            this.butSelect.Location = new System.Drawing.Point(637, 17);
-            this.butSelect.Name = "butSelect";
-            this.butSelect.Size = new System.Drawing.Size(75, 23);
-            this.butSelect.TabIndex = 46;
-            this.butSelect.Text = "Select";
-            this.butSelect.UseVisualStyleBackColor = true;
             // 
             // numericUpDownSalary
             // 
@@ -235,14 +224,6 @@
             this.comboBoxJob.Size = new System.Drawing.Size(121, 24);
             this.comboBoxJob.TabIndex = 49;
             // 
-            // comboBoxTablas
-            // 
-            this.comboBoxTablas.FormattingEnabled = true;
-            this.comboBoxTablas.Location = new System.Drawing.Point(510, 16);
-            this.comboBoxTablas.Name = "comboBoxTablas";
-            this.comboBoxTablas.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxTablas.TabIndex = 50;
-            // 
             // butDelete
             // 
             this.butDelete.Location = new System.Drawing.Point(739, 439);
@@ -259,11 +240,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(837, 499);
             this.Controls.Add(this.butDelete);
-            this.Controls.Add(this.comboBoxTablas);
             this.Controls.Add(this.comboBoxJob);
             this.Controls.Add(this.comboBoxDepartment);
             this.Controls.Add(this.comboBoxManager);
-            this.Controls.Add(this.butSelect);
             this.Controls.Add(this.numericUpDownSalary);
             this.Controls.Add(this.dateTimeHire_date);
             this.Controls.Add(this.textBoxPhone_number);
@@ -294,7 +273,6 @@
 
         private System.Windows.Forms.ListBox listBoxEmployee;
         private System.Windows.Forms.Button butInsert;
-        private System.Windows.Forms.Button butSelect;
         private System.Windows.Forms.NumericUpDown numericUpDownSalary;
         private System.Windows.Forms.DateTimePicker dateTimeHire_date;
         private System.Windows.Forms.TextBox textBoxPhone_number;
@@ -313,7 +291,6 @@
         private System.Windows.Forms.ComboBox comboBoxManager;
         private System.Windows.Forms.ComboBox comboBoxDepartment;
         private System.Windows.Forms.ComboBox comboBoxJob;
-        private System.Windows.Forms.ComboBox comboBoxTablas;
         private System.Windows.Forms.Button butDelete;
     }
 }

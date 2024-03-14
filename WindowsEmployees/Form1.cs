@@ -73,15 +73,16 @@ namespace WindowsEmployees
                 department_id = department.department_id,
                 job_id = job.job_id
             };
-            dALEmployee.Insertar(e3); 
+            dALEmployee.Insertar(e3);
             //Pasamos el objeto que hemos creado y lo ponemos en la base de datos
+            listBoxEmployee.DataSource = dALEmployee.Select();
 
-            }
+        }
 
         private void butDelete_Click(object sender, EventArgs e)
         {
-            //DALEmployee dALEmployee = new DALEmployee();
             dALEmployee.Delete((employees)listBoxEmployee.SelectedItem);
+            listBoxEmployee.DataSource = dALEmployee.Select();
         }
     }
 
