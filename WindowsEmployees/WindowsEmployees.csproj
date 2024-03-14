@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\DALDepartment.cs" />
+    <Compile Include="DAL\DALEmployee.cs" />
+    <Compile Include="DAL\DALJob.cs" />
     <Compile Include="DBEmployees.cs">
       <DependentUpon>DBEmployees.dbml</DependentUpon>
     </Compile>
@@ -61,6 +64,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MODELO\Department.cs" />
+    <Compile Include="MODELO\Employee.cs" />
+    <Compile Include="MODELO\Job.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
