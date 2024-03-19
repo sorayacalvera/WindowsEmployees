@@ -11,14 +11,15 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WindowsEmployees
 {
-    public partial class Employee : Form
+    public partial class FormEmployee : Form
     {
         DALDepartment dALDepartment = new DALDepartment();
         DALJob dALJob = new DALJob();
         DALEmployee dALEmployee = new DALEmployee();
 
+        private employees employee;
 
-        public Employee()
+        public FormEmployee()
         {
             InitializeComponent();
         }
@@ -34,7 +35,7 @@ namespace WindowsEmployees
             comboBoxJob.ValueMember = "job_id";
 
             comboBoxManager.DataSource = dALEmployee.Select();
-            comboBoxManager.ValueMember = "first_name";
+            comboBoxManager.DisplayMember = "first_name";
             comboBoxManager.ValueMember = "employee_id";
 
 
@@ -52,19 +53,19 @@ namespace WindowsEmployees
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-            employees e2 = (employees)listBoxEmployee.SelectedItem;
+            employee = (employees)listBoxEmployee.SelectedItem;
 
 
-            textBoxFirst_name.Text = e2.first_name;
-            textBoxLast_name.Text = e2.last_name;
-            textBoxEmail.Text = e2.email;
-            textBoxPhone_number.Text = e2.phone_number;
-            dateTimeHire_date.Value = e2.hire_date;
-            numericUpDownSalary.Value = e2.salary;
+            textBoxFirst_name.Text = employee.first_name;
+            textBoxLast_name.Text = employee.last_name;
+            textBoxEmail.Text = employee.email;
+            textBoxPhone_number.Text = employee.phone_number;
+            dateTimeHire_date.Value = employee.hire_date;
+            numericUpDownSalary.Value = employee.salary;
             // ?? significa que si es nulo lo ponga en 0
-            comboBoxManager.SelectedValue = e2.manager_id ?? 0;
-            comboBoxDepartment.SelectedValue = (int?)e2.department_id ?? 0;
-            comboBoxJob.SelectedValue =e2.job_id;
+            comboBoxManager.SelectedValue = employee.manager_id ?? 0;
+            comboBoxDepartment.SelectedValue = (int?)employee.department_id ?? 0;
+            comboBoxJob.SelectedValue = employee.job_id;
 
         }
 
@@ -108,9 +109,10 @@ namespace WindowsEmployees
             listBoxEmployee.DataSource = dALEmployee.Select();
         }
 
+
         private void butModificar_Click(object sender, EventArgs e)
         {
-           // listBoxEmployee.DataSource = ;
+       
         }
     }
 

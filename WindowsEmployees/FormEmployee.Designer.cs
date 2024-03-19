@@ -1,6 +1,6 @@
 ﻿namespace WindowsEmployees
 {
-    partial class Employee
+    partial class FormEmployee
     {
         /// <summary>
         /// Variable del diseñador necesaria.

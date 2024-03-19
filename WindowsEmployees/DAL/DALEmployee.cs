@@ -37,10 +37,6 @@ namespace WindowsEmployees
             dc.SubmitChanges();
         }
         
-        public void Modificar(employees empl)
-        {
-            
-        }
             
     }
 }
