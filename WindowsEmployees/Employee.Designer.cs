@@ -1,6 +1,6 @@
 ﻿namespace WindowsEmployees
 {
-    partial class Form1
+    partial class Employee
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -205,6 +205,7 @@
             // 
             // comboBoxManager
             // 
+            this.comboBoxManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxManager.FormattingEnabled = true;
             this.comboBoxManager.Location = new System.Drawing.Point(163, 211);
             this.comboBoxManager.Name = "comboBoxManager";
@@ -213,6 +214,7 @@
             // 
             // comboBoxDepartment
             // 
+            this.comboBoxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDepartment.FormattingEnabled = true;
             this.comboBoxDepartment.Location = new System.Drawing.Point(164, 239);
             this.comboBoxDepartment.Name = "comboBoxDepartment";
@@ -221,6 +223,7 @@
             // 
             // comboBoxJob
             // 
+            this.comboBoxJob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxJob.FormattingEnabled = true;
             this.comboBoxJob.Location = new System.Drawing.Point(163, 267);
             this.comboBoxJob.Name = "comboBoxJob";
@@ -267,7 +270,7 @@
             this.butModificar.UseVisualStyleBackColor = true;
             this.butModificar.Click += new System.EventHandler(this.butModificar_Click);
             // 
-            // Form1
+            // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -296,7 +299,7 @@
             this.Controls.Add(this.labFirst_Name);
             this.Controls.Add(this.butInsert);
             this.Controls.Add(this.listBoxEmployee);
-            this.Name = "Form1";
+            this.Name = "Employee";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSalary)).EndInit();

@@ -11,25 +11,32 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WindowsEmployees
 {
-    public partial class Form1 : Form
+    public partial class Employee : Form
     {
-        //DBEmployeesDataContext dc = new DBEmployeesDataContext();
-            DALEmployee dALEmployee = new DALEmployee();
+        DALDepartment dALDepartment = new DALDepartment();
+        DALJob dALJob = new DALJob();
+        DALEmployee dALEmployee = new DALEmployee();
 
 
-        public Form1()
+        public Employee()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DALDepartment dALDepartment = new DALDepartment();
-            DALJob dALJob = new DALJob();
-            
-            comboBoxDepartment.DataSource = dALDepartment.Select(); 
+            comboBoxDepartment.DataSource = dALDepartment.Select();
+            comboBoxDepartment.DisplayMember = "department_name";
+            comboBoxDepartment.ValueMember = "department_id";
+
             comboBoxJob.DataSource = dALJob.Select();
+            comboBoxJob.DisplayMember = "job_tittle";
+            comboBoxJob.ValueMember = "job_id";
+
             comboBoxManager.DataSource = dALEmployee.Select();
+            comboBoxManager.ValueMember = "first_name";
+            comboBoxManager.ValueMember = "employee_id";
+
 
 /*            
             var data2 = from emp in dc.employees
@@ -54,7 +61,10 @@ namespace WindowsEmployees
             textBoxPhone_number.Text = e2.phone_number;
             dateTimeHire_date.Value = e2.hire_date;
             numericUpDownSalary.Value = e2.salary;
-            comboBoxManager.ValueMember = e2.department_id;
+            // ?? significa que si es nulo lo ponga en 0
+            comboBoxManager.SelectedValue = e2.manager_id ?? 0;
+            comboBoxDepartment.SelectedValue = (int?)e2.department_id ?? 0;
+            comboBoxJob.SelectedValue =e2.job_id;
 
         }
 
@@ -100,7 +110,7 @@ namespace WindowsEmployees
 
         private void butModificar_Click(object sender, EventArgs e)
         {
-            listBoxEmployee.DataSource = ;
+           // listBoxEmployee.DataSource = ;
         }
     }
 
