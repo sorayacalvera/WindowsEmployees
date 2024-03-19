@@ -36,5 +36,11 @@ namespace WindowsEmployees
             dc.employees.DeleteOnSubmit(empl);
             dc.SubmitChanges();
         }
+        
+        public void Modificar(employees empl)
+        {
+            
+        }
+            
     }
 }

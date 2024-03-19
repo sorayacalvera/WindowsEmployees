@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace WindowsEmployees
 {
@@ -23,8 +24,6 @@ namespace WindowsEmployees
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            listBoxEmployee.DataSource = dALEmployee.Select(); //DataSource es el contenido que tiene el comboBox
             DALDepartment dALDepartment = new DALDepartment();
             DALJob dALJob = new DALJob();
             
@@ -47,19 +46,25 @@ namespace WindowsEmployees
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             employees e2 = (employees)listBoxEmployee.SelectedItem;
-   
-            dALEmployee.Update();
+
+
+            textBoxFirst_name.Text = e2.first_name;
+            textBoxLast_name.Text = e2.last_name;
+            textBoxEmail.Text = e2.email;
+            textBoxPhone_number.Text = e2.phone_number;
+            dateTimeHire_date.Value = e2.hire_date;
+            numericUpDownSalary.Value = e2.salary;
+            comboBoxManager.ValueMember = e2.department_id;
+
         }
 
         private void butInsert_Click(object sender, EventArgs e)
         {
-            jobs job = new jobs();
-            departments department = new departments();
-            employees manager = new employees();
-
-            job = comboBoxJob.SelectedItem as jobs; //el objeto seleccionado del comboBox es un job, cogemos el objeto seleccionado y lo pasamos a un objeto jobs 
-            department = comboBoxDepartment.SelectedItem as departments;
-            manager = comboBoxManager.SelectedItem as employees;
+            //el objeto seleccionado del comboBox es un job, cogemos el objeto seleccionado
+            //y lo pasamos a un objeto jobs
+            jobs job = comboBoxJob.SelectedItem as jobs; 
+            departments department = comboBoxDepartment.SelectedItem as departments;
+            employees manager = comboBoxManager.SelectedItem as employees;
 
             employees e3 = new employees()
             {
@@ -69,20 +74,33 @@ namespace WindowsEmployees
                 phone_number = textBoxPhone_number.Text,
                 hire_date = dateTimeHire_date.Value,
                 salary = numericUpDownSalary.Value,
-                manager_id = manager.employee_id,
-                department_id = department.department_id,
+                manager_id = manager==null ? (int?)null : manager.employee_id,
+                department_id = department == null ? (int?)null : department.department_id,
                 job_id = job.job_id
             };
             dALEmployee.Insertar(e3);
             //Pasamos el objeto que hemos creado y lo ponemos en la base de datos
-            listBoxEmployee.DataSource = dALEmployee.Select();
-
         }
 
         private void butDelete_Click(object sender, EventArgs e)
         {
             dALEmployee.Delete((employees)listBoxEmployee.SelectedItem);
+
+        }
+
+        private void butSave_Click(object sender, EventArgs e)
+        {
+            dALEmployee.Update();
+        }
+
+        private void butRefresh_Click(object sender, EventArgs e)
+        {
             listBoxEmployee.DataSource = dALEmployee.Select();
+        }
+
+        private void butModificar_Click(object sender, EventArgs e)
+        {
+            listBoxEmployee.DataSource = ;
         }
     }
 
