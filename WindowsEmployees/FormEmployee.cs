@@ -19,9 +19,12 @@ namespace WindowsEmployees
 
         private employees employee;
 
+        
+
         public FormEmployee()
         {
             InitializeComponent();
+            listBoxEmployee.DataSource = dALEmployee.Select();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,7 +34,7 @@ namespace WindowsEmployees
             comboBoxDepartment.ValueMember = "department_id";
 
             comboBoxJob.DataSource = dALJob.Select();
-            comboBoxJob.DisplayMember = "job_tittle";
+            comboBoxJob.DisplayMember = "job_title";
             comboBoxJob.ValueMember = "job_id";
 
             comboBoxManager.DataSource = dALEmployee.Select();
@@ -53,17 +56,10 @@ namespace WindowsEmployees
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             employee = (employees)listBoxEmployee.SelectedItem;
+            FormModificar fm = new FormModificar(employee);
+            fm.ShowDialog();
+            
 
-            textBoxFirst_name.Text = employee.first_name;
-            textBoxLast_name.Text = employee.last_name;
-            textBoxEmail.Text = employee.email;
-            textBoxPhone_number.Text = employee.phone_number;
-            dateTimeHire_date.Value = employee.hire_date;
-            numericUpDownSalary.Value = employee.salary;
-            // ?? significa que si es nulo lo ponga en 0
-            comboBoxManager.SelectedValue = employee.manager_id ?? 0;
-            comboBoxDepartment.SelectedValue = employee.department_id ?? 0;
-            comboBoxJob.SelectedValue = employee.job_id;
         }
 
         private void butInsert_Click(object sender, EventArgs e)
@@ -87,34 +83,14 @@ namespace WindowsEmployees
                 job_id = job.job_id
             };
             dALEmployee.Insertar(e3);
-            //Pasamos el objeto que hemos creado y lo ponemos en la base de datos
+            //Pasamos el objeto que hemos creado y lo ponemos en la base de datos;
+            listBoxEmployee.DataSource = dALEmployee.Select();
         }
 
         private void butDelete_Click(object sender, EventArgs e)
         {
             dALEmployee.Delete((employees)listBoxEmployee.SelectedItem);
-
-        }
-
-        private void butRefresh_Click(object sender, EventArgs e)
-        {
             listBoxEmployee.DataSource = dALEmployee.Select();
-        }
-
-
-        private void butModificar_Click(object sender, EventArgs e)
-        {
-            employee.first_name = textBoxFirst_name.Text;
-            employee.last_name = textBoxLast_name.Text;
-            employee.email = textBoxEmail.Text;
-            employee.phone_number = textBoxPhone_number.Text;
-            employee.hire_date = dateTimeHire_date.Value;
-            employee.salary = numericUpDownSalary.Value;
-            employee.manager_id = (int?)comboBoxManager.SelectedValue ?? 0;
-            employee.department_id = (int?)comboBoxDepartment.SelectedValue ?? 0;
-            employee.job_id = (int)comboBoxJob.SelectedValue;
-
-            dALEmployee.Update();
         }
     }
 

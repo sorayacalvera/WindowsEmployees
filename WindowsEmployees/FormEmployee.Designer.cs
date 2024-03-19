@@ -49,8 +49,6 @@
             this.comboBoxDepartment = new System.Windows.Forms.ComboBox();
             this.comboBoxJob = new System.Windows.Forms.ComboBox();
             this.butDelete = new System.Windows.Forms.Button();
-            this.butRefresh = new System.Windows.Forms.Button();
-            this.butModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSalary)).BeginInit();
             this.SuspendLayout();
             // 
@@ -204,7 +202,6 @@
             // 
             // comboBoxManager
             // 
-            this.comboBoxManager.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxManager.FormattingEnabled = true;
             this.comboBoxManager.Location = new System.Drawing.Point(163, 211);
             this.comboBoxManager.Name = "comboBoxManager";
@@ -213,7 +210,6 @@
             // 
             // comboBoxDepartment
             // 
-            this.comboBoxDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDepartment.FormattingEnabled = true;
             this.comboBoxDepartment.Location = new System.Drawing.Point(164, 239);
             this.comboBoxDepartment.Name = "comboBoxDepartment";
@@ -239,33 +235,11 @@
             this.butDelete.UseVisualStyleBackColor = true;
             this.butDelete.Click += new System.EventHandler(this.butDelete_Click);
             // 
-            // butRefresh
-            // 
-            this.butRefresh.Location = new System.Drawing.Point(634, 439);
-            this.butRefresh.Name = "butRefresh";
-            this.butRefresh.Size = new System.Drawing.Size(75, 23);
-            this.butRefresh.TabIndex = 53;
-            this.butRefresh.Text = "Refresh";
-            this.butRefresh.UseVisualStyleBackColor = true;
-            this.butRefresh.Click += new System.EventHandler(this.butRefresh_Click);
-            // 
-            // butModificar
-            // 
-            this.butModificar.Location = new System.Drawing.Point(238, 312);
-            this.butModificar.Name = "butModificar";
-            this.butModificar.Size = new System.Drawing.Size(75, 23);
-            this.butModificar.TabIndex = 54;
-            this.butModificar.Text = "Modificar";
-            this.butModificar.UseVisualStyleBackColor = true;
-            this.butModificar.Click += new System.EventHandler(this.butModificar_Click);
-            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(837, 499);
-            this.Controls.Add(this.butModificar);
-            this.Controls.Add(this.butRefresh);
             this.Controls.Add(this.butDelete);
             this.Controls.Add(this.comboBoxJob);
             this.Controls.Add(this.comboBoxDepartment);
@@ -319,8 +293,6 @@
         private System.Windows.Forms.ComboBox comboBoxDepartment;
         private System.Windows.Forms.ComboBox comboBoxJob;
         private System.Windows.Forms.Button butDelete;
-        private System.Windows.Forms.Button butRefresh;
-        private System.Windows.Forms.Button butModificar;
     }
 }
 

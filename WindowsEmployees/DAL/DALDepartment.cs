@@ -16,7 +16,7 @@ namespace WindowsEmployees
             return data;
         }
 
-        public IQueryable SelectById(int idDepartment) //IQueriable tipo de variable que devuelve LINQ
+        public IQueryable SelectByIdDepartment(int idDepartment) //IQueriable tipo de variable que devuelve LINQ
         {
             var data = from dep in dc.departments
                        where dep.department_id == idDepartment
