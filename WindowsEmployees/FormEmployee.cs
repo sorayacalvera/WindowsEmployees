@@ -38,23 +38,21 @@ namespace WindowsEmployees
             comboBoxManager.DisplayMember = "first_name";
             comboBoxManager.ValueMember = "employee_id";
 
+            /*            
+                        var data2 = from emp in dc.employees
+                                    where emp.employee_id == 110
+                                    select emp;
 
-/*            
-            var data2 = from emp in dc.employees
-                        where emp.employee_id == 110
-                        select emp;
-
-            var data3 = from emp in dc.employees
-                        where emp.employee_id == 110
-                        select emp;
-            employees e1 = data3.FirstOrDefault();
-            MessageBox.Show(e1.first_name);  */
-                }
+                        var data3 = from emp in dc.employees
+                                    where emp.employee_id == 110
+                                    select emp;
+                        employees e1 = data3.FirstOrDefault();
+                        MessageBox.Show(e1.first_name);  */
+        }
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
             employee = (employees)listBoxEmployee.SelectedItem;
-
 
             textBoxFirst_name.Text = employee.first_name;
             textBoxLast_name.Text = employee.last_name;
@@ -64,16 +62,15 @@ namespace WindowsEmployees
             numericUpDownSalary.Value = employee.salary;
             // ?? significa que si es nulo lo ponga en 0
             comboBoxManager.SelectedValue = employee.manager_id ?? 0;
-            comboBoxDepartment.SelectedValue = (int?)employee.department_id ?? 0;
+            comboBoxDepartment.SelectedValue = employee.department_id ?? 0;
             comboBoxJob.SelectedValue = employee.job_id;
-
         }
 
         private void butInsert_Click(object sender, EventArgs e)
         {
             //el objeto seleccionado del comboBox es un job, cogemos el objeto seleccionado
             //y lo pasamos a un objeto jobs
-            jobs job = comboBoxJob.SelectedItem as jobs; 
+            jobs job = comboBoxJob.SelectedItem as jobs;
             departments department = comboBoxDepartment.SelectedItem as departments;
             employees manager = comboBoxManager.SelectedItem as employees;
 
@@ -85,7 +82,7 @@ namespace WindowsEmployees
                 phone_number = textBoxPhone_number.Text,
                 hire_date = dateTimeHire_date.Value,
                 salary = numericUpDownSalary.Value,
-                manager_id = manager==null ? (int?)null : manager.employee_id,
+                manager_id = manager == null ? (int?)null : manager.employee_id,
                 department_id = department == null ? (int?)null : department.department_id,
                 job_id = job.job_id
             };
@@ -99,11 +96,6 @@ namespace WindowsEmployees
 
         }
 
-        private void butSave_Click(object sender, EventArgs e)
-        {
-            dALEmployee.Update();
-        }
-
         private void butRefresh_Click(object sender, EventArgs e)
         {
             listBoxEmployee.DataSource = dALEmployee.Select();
@@ -112,7 +104,17 @@ namespace WindowsEmployees
 
         private void butModificar_Click(object sender, EventArgs e)
         {
-       
+            employee.first_name = textBoxFirst_name.Text;
+            employee.last_name = textBoxLast_name.Text;
+            employee.email = textBoxEmail.Text;
+            employee.phone_number = textBoxPhone_number.Text;
+            employee.hire_date = dateTimeHire_date.Value;
+            employee.salary = numericUpDownSalary.Value;
+            employee.manager_id = (int?)comboBoxManager.SelectedValue ?? 0;
+            employee.department_id = (int?)comboBoxDepartment.SelectedValue ?? 0;
+            employee.job_id = (int)comboBoxJob.SelectedValue;
+
+            dALEmployee.Update();
         }
     }
 

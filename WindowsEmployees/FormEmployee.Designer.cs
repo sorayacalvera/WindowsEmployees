@@ -49,7 +49,6 @@
             this.comboBoxDepartment = new System.Windows.Forms.ComboBox();
             this.comboBoxJob = new System.Windows.Forms.ComboBox();
             this.butDelete = new System.Windows.Forms.Button();
-            this.butSave = new System.Windows.Forms.Button();
             this.butRefresh = new System.Windows.Forms.Button();
             this.butModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSalary)).BeginInit();
@@ -240,16 +239,6 @@
             this.butDelete.UseVisualStyleBackColor = true;
             this.butDelete.Click += new System.EventHandler(this.butDelete_Click);
             // 
-            // butSave
-            // 
-            this.butSave.Location = new System.Drawing.Point(443, 439);
-            this.butSave.Name = "butSave";
-            this.butSave.Size = new System.Drawing.Size(75, 23);
-            this.butSave.TabIndex = 52;
-            this.butSave.Text = "Save";
-            this.butSave.UseVisualStyleBackColor = true;
-            this.butSave.Click += new System.EventHandler(this.butSave_Click);
-            // 
             // butRefresh
             // 
             this.butRefresh.Location = new System.Drawing.Point(634, 439);
@@ -270,14 +259,13 @@
             this.butModificar.UseVisualStyleBackColor = true;
             this.butModificar.Click += new System.EventHandler(this.butModificar_Click);
             // 
-            // Employee
+            // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(837, 499);
             this.Controls.Add(this.butModificar);
             this.Controls.Add(this.butRefresh);
-            this.Controls.Add(this.butSave);
             this.Controls.Add(this.butDelete);
             this.Controls.Add(this.comboBoxJob);
             this.Controls.Add(this.comboBoxDepartment);
@@ -299,7 +287,7 @@
             this.Controls.Add(this.labFirst_Name);
             this.Controls.Add(this.butInsert);
             this.Controls.Add(this.listBoxEmployee);
-            this.Name = "Employee";
+            this.Name = "FormEmployee";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSalary)).EndInit();
@@ -331,7 +319,6 @@
         private System.Windows.Forms.ComboBox comboBoxDepartment;
         private System.Windows.Forms.ComboBox comboBoxJob;
         private System.Windows.Forms.Button butDelete;
-        private System.Windows.Forms.Button butSave;
         private System.Windows.Forms.Button butRefresh;
         private System.Windows.Forms.Button butModificar;
     }
