@@ -13,9 +13,7 @@ namespace WindowsEmployees
 {
     public partial class FormEmployee : Form
     {
-        DALDepartment dALDepartment = new DALDepartment();
-        DALJob dALJob = new DALJob();
-        DALEmployee dALEmployee = new DALEmployee();
+
 
         private employees employee;
 
@@ -23,12 +21,18 @@ namespace WindowsEmployees
 
         public FormEmployee()
         {
+
+            DALEmployee dALEmployee = new DALEmployee();
             InitializeComponent();
             listBoxEmployee.DataSource = dALEmployee.Select();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            DALDepartment dALDepartment = new DALDepartment();
+            DALJob dALJob = new DALJob();
+            DALEmployee dALEmployee = new DALEmployee();
+
             comboBoxDepartment.DataSource = dALDepartment.Select();
             comboBoxDepartment.DisplayMember = "department_name";
             comboBoxDepartment.ValueMember = "department_id";
@@ -64,6 +68,8 @@ namespace WindowsEmployees
 
         private void butInsert_Click(object sender, EventArgs e)
         {
+            DALEmployee dALEmployee = new DALEmployee();
+
             //el objeto seleccionado del comboBox es un job, cogemos el objeto seleccionado
             //y lo pasamos a un objeto jobs
             jobs job = comboBoxJob.SelectedItem as jobs;
@@ -84,12 +90,23 @@ namespace WindowsEmployees
             };
             dALEmployee.Insertar(e3);
             //Pasamos el objeto que hemos creado y lo ponemos en la base de datos;
-            listBoxEmployee.DataSource = dALEmployee.Select();
+            Actualizar();
         }
 
         private void butDelete_Click(object sender, EventArgs e)
         {
+
+            DALEmployee dALEmployee = new DALEmployee();
+
             dALEmployee.Delete((employees)listBoxEmployee.SelectedItem);
+            Actualizar();
+        }
+
+        private void Actualizar ()
+        {
+
+            DALEmployee dALEmployee = new DALEmployee();
+
             listBoxEmployee.DataSource = dALEmployee.Select();
         }
     }
